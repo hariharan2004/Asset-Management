@@ -1,0 +1,14 @@
+/* App.css */
+
+/* Make sure the page wrapper takes the full height of the viewport */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* The main content should take up any remaining space */
+.main-content {
+  flex: 1; /* Grow to fill space */
+}
+

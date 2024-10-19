@@ -1,0 +1,225 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto; /* Ensure the body height isn't stretched */
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  color: #fff;
+  margin: 0; /* Remove default margin */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Home Component Styles */
+.home-section {
+  padding-top: 20px; /* Adjusted padding */
+  margin: 0; 
+  overflow: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+  height: calc(100vh - 20px); /* Adjusted for header height */
+  padding: 60px 20px;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+}
+
+.hero-content {
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  max-width: 1200px; /* Adjust based on design */
+  margin: 0 auto;
+}
+
+/* Text and Image side by side */
+.hero-text {
+  width:50%; /* Fixed width for text */
+  margin-right: 40px; /* Space between text and image */
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Pridi", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #33FF00; /* Updated color for heading */
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #FFBF00, #FF6F00);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+/* Image Styling */
+.hero-image {
+  width: 400px; /* Fixed width for image */
+}
+
+.hero-image img {
+  width: 100%; /* Image takes full width of its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.trade-now,
+.whitepaper {
+  background: linear-gradient(90deg, #FF6F61, #00BFFF); /* Gradient background */
+  color: black; /* Text color (black) */
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 20px; /* Padding */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  position: relative; /* Position for pseudo-element */
+  overflow: hidden; /* Ensure contents do not overflow */
+  text-decoration: none; /* No underline */
+}
+.trade-now:hover,.whitepaper:hover {
+  background: linear-gradient(90deg,#00BFFF,#FF6F61); /* Reverse the gradient on hover */
+}
+
+/* Key Features Section */
+.home-key-features {
+  padding: 40px 20px;
+  margin: 0px 50px;
+  background-color: #000; /* Dark background for contrast */
+  color: #fff; /* White text for readability */
+  text-align: center; /* Center align text */
+}
+
+.home-key-features-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap onto the next line */
+  justify-content: center; /* Center items horizontally */
+}
+
+.key-feature-item {
+  flex: 0 1 45%; /* Adjust width to fit two items per row */
+  margin: 20px; /* Space around each feature box */
+  padding: 20px; /* Inner padding for feature boxes */
+  border: 1px solid #00FF44; /* Optional border for aesthetics */
+  border-radius: 8px; /* Rounded corners */
+  background: rgba(0, 255, 68, 0.1); /* Light green background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+.home-featuredvaults-heading,.home-keyfeatures-heading{
+  text-align: center;
+  align-items: center;
+  font-size: 24px;
+  color: #00FF44;
+}
+
+.feature-image {
+  max-width: 100px; /* Adjust size as needed */
+  margin-bottom: 10px;
+}
+.home-top-vaults{
+  margin-bottom: 100px;
+}
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .key-feature-item {
+    flex: 1 1 100%; /* Full width on smaller screens */
+  }
+}
+
+
+@keyframes border-animation {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 60px 0;
+  margin-bottom: 0; 
+  background-color: #111; /* Same background as hero section */
+  color: #fff;
+  text-align: center; /* Center align titles */
+}
+
+.faq-section h2 {
+  
+  font-size: 32px;
+  color: #33FF00; /* Consistent with the Hero title */
+  margin-bottom: 40px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 30px;
+  text-align: left; /* Align text to the left */
+}
+
+.faq-item h3 {
+  font-size: 24px;
+  color: #FF6F00;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 16px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* Media Queries for additional responsiveness */
+@media (max-width: 768px) {
+  .hero-content{
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+  }
+  .hero-section {
+    padding: 40px 10px;
+    flex-direction: column; /* Stack the content vertically */
+    text-align: center; /* Center the content on mobile */
+  }
+
+  .hero-text {
+    width: 100%; /* Make the text take full width */
+    margin: 0 0 20px 0; /* Add margin below the text */
+  }
+
+  .hero-text h1 {
+    font-size: 28px; /* Slightly smaller heading */
+  }
+
+  .hero-text p {
+    font-size: 16px; /* Slightly smaller paragraph */
+  }
+
+  .hero-image {
+    width: 80%; /* Reduce the image size for mobile */
+    margin: 0 auto; /* Center the image */
+  }
+
+  .trade-now, .whitepaper {
+    padding: 8px 16px;
+    font-size: 14px; /* Smaller button size */
+  }
+
+  .faq-section {
+    padding: 40px 10px; /* Adjust padding for smaller screens */
+  }
+}

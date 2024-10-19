@@ -1,0 +1,192 @@
+/* Portfolio Container */
+.portfolio-detail-container {
+  display: grid;
+  grid-template-columns: 60vw calc(100% - 60vw - 20px);
+  gap: 20px;
+  padding: 20px;
+  padding-top: 100px;
+  margin: 0 50px;
+  box-sizing: border-box;
+}
+
+/* Left Box */
+.portfolio-left-empty-box {
+  background-color: #222;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.portfolio-left-box-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.portfolio-title h2 {
+  font-size: 28px;
+  color: #ffbf00;
+  margin-left: 15px;
+}
+
+/* Right Content */
+.portfolio-content {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portfolio-info-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portfolio-info {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+.portfolio-info-heading,.portfolio-assetinfo-heading {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.portfolio-address {
+  text-align: center;
+  background-color: #222;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+.portfolio-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio-stat {
+  flex: 1;
+  text-align: center;
+}
+
+/* Deposit/Withdraw Section */
+.portfolio-actions {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.portfolio-deposit-withdraw-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio-deposit-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.portfolio-amount-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.portfolio-currency-label {
+  margin-left: 10px;
+}
+
+.portfolio-balance-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.portfolio-max-button {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.portfolio-deposit-button {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Asset Information Section */
+.portfolio-main-second {
+  padding: 20px;
+  margin: 0px 50px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.portfolio-transaction-details {
+  background-color: #333;
+  padding: 20px;
+  width: 100%; /* Full width of the parent */
+  border-radius: 8px;
+  box-sizing: border-box; /* Ensure padding doesn't add extra width */
+}
+
+.portfolio-transaction-header,
+.portfolio-transaction-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+  gap: 10px;
+  background-color: black; /* Background for the entire row */
+  text-align: center;
+  padding: 15px; /* Space inside the row */
+  border-radius: 20px; /* Rounded corners for the whole row */
+  border: 1px solid black; /* Optional border for better visibility */
+  color: white; /* Ensure text is visible */
+  margin-bottom: 10px; /* Add space between rows */
+}
+
+.portfolio-transaction-row span {
+  border-radius: 4px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .portfolio-title h2{
+    text-align: center;
+    align-items: center;
+  }
+  .portfolio-detail-container,
+  .main-second {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 20px;
+    margin-bottom: 0;
+  }
+  .portfolio-content{
+    padding: 0;
+  }
+
+  .portfolio-left-empty-box,
+  .portfolio-content{
+    width: 90%;
+    border-radius: 20px;
+    min-height: 300px;
+  }
+  .portfolio-transaction-details{
+    display: none;
+  }
+  .portfolio-main-second{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+}

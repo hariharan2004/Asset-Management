@@ -1,0 +1,222 @@
+/* Header.css */
+.navbar {
+  position: fixed; /* Fix the header at the top */
+  top: 0; /* Align it at the top of the viewport */
+  left: 0; /* Align it to the left */
+  right: 0; /* Align it to the right */
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #111; /* Dark background for the navbar */
+  z-index: 1000; /* Keep it above other elements */
+  transition: border-bottom 0.3s ease; /* Smooth transition for the border */
+}
+/* Initially hide the border */
+.navbar.no-border {
+  border-bottom: none;
+}
+/* Show the border when scrolled */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  border-bottom: 2px solid rgba(176, 179, 184, 0.7); /* Semi-transparent border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow with transparency */
+  transition: background-color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition */
+}
+/* Logo container styles */
+.logo {
+  display: flex; /* Align items in the same row */
+  align-items: center; /* Vertically center the image and text */
+  gap: 10px; /* Add space between the image and the title */
+}
+.logo:hover{
+  cursor: pointer;
+}
+/* Logo title styles */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Remove underline from the text */
+  color: inherit; /* Ensure it uses the inherited text color */
+}
+
+.logo-title {
+  font-size: 24px;
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(90deg, #4A00E0, #FF7E5F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  margin: 0;
+  display: inline-block;
+}
+
+
+.navbar nav ul {
+  list-style-type: none; /* Remove bullet points */
+  display: flex; /* Horizontal layout */
+  gap: 20px; /* Space between items */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Keyframes for the running fire effect */
+@keyframes fireAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Header.css (updated styles for smooth border effect) */
+
+.navbar nav ul li {
+  position: relative;
+  list-style-type: none; 
+  display: inline-block; 
+  text-decoration: none;
+  background: linear-gradient(90deg, #FFBF00, #FF6F00);
+  background-size: 200%; 
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal; 
+  -webkit-text-fill-color: transparent; 
+  font-size: 16px;
+  transition: color 0.3s ease, border 0.3s ease; 
+  padding: 10px 15px; 
+}
+
+.navbar nav ul li.active::after {
+  transform: scaleX(1); 
+}
+
+.navbar nav ul li::after {
+  content: ''; 
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  bottom: -5px; 
+  height: 3px; 
+  background-color: #FFBF00; 
+  transform: scaleX(0); 
+  transition: transform 0.3s ease; 
+}
+
+/* Show border on hover */
+.navbar nav ul li:hover::after,
+.navbar nav ul li.active::after {
+  transform: scaleX(1); /* Scale the border to full width */
+}
+
+/* Styles for dropdown items */
+.dropdown-menu {
+  display: none; /* Hide by default */
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Smooth transition */
+  align-items: center;
+  text-align: center;
+}
+
+.navbar nav ul li:hover .dropdown-menu {
+  display: block; /* Show on hover */
+  opacity: 1; /* Fade in */
+  position: absolute; /* Position dropdown */
+  left: 0;
+  top: 100%; /* Position below the parent */
+  background-color: #111; /* Match background */
+  padding: 10px 0; /* Space for items */
+}
+
+.dropdown-menu li {
+  white-space: nowrap; /* Prevent text wrapping */
+  
+}
+
+.wallet-container {
+  position: relative; /* Position for the dropdown */
+}
+.connect-wallet {
+  background: linear-gradient(90deg, #00BFFF, #FF6F61); /* Linear gradient background */
+  color: black; /* Black text color */
+  border: none; /* No border */
+  padding: 10px; /* Padding */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+  border-radius: 5px; /* Optional: rounded corners */
+}
+
+/* Optional: Change background color on hover */
+.connect-wallet:hover {
+  background: linear-gradient(90deg, #FF6F61, #00BFFF); /* Reverse the gradient on hover */
+}
+
+.wallet-dropdown {
+  position: absolute;
+  top: 100%; /* Position it below the button */
+  left: 0;
+  background-color: #222; /* Dropdown background color */
+  border: 1px solid #555; /* Border for dropdown */
+  border-radius: 5px;
+  z-index: 1000; /* Ensure it appears above other elements */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 5px; /* Space between buttons */
+  padding: 10px; /* Padding inside dropdown */
+}
+
+.wallet-dropdown button {
+  background-color: #444; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  padding: 10px; /* Padding */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.wallet-dropdown button:hover {
+  background-color: #555; /* Change color on hover */
+}
+
+/* Existing styles here... */
+
+.hamburger {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Styles for the navbar */
+@media (max-width: 768px) {
+  .navbar{
+    width: 100vw;
+  }
+  .navbar nav ul {
+    display: none; /* Hide the menu by default */
+    flex-direction: column; /* Stack vertically */
+    background-color: #111; /* Match navbar background */
+    position: absolute; /* Position it absolutely */
+    top: 100%; /* Position it below the navbar */
+    left: 0;
+    right: 0;
+    z-index: 999; /* Ensure it stays above other elements */
+  }
+
+  .navbar nav.open ul {
+    display: flex; /* Show menu when open */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+}
+

@@ -1,0 +1,133 @@
+body {
+    background-color: #000; /* Set the default background to black */
+    font-family: 'Arial', sans-serif; /* Font style */
+    color: #ffffff; /* Default text color */
+}
+
+.roadmap {
+    position: relative;
+    padding: 50px 0;
+    margin-bottom: 0;
+    background-color: #111; /* Dark gray for roadmap section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Soft shadow */
+}
+
+.roadmap-container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.roadmap-item {
+    display: flex;
+    position: relative;
+    margin-bottom: 50px;
+    align-items: center; /* Align content vertically centered */
+}
+
+#heading-roadmap {
+    text-align: center;
+    align-items: center;
+    color: #FF6F00; /* Vibrant heading color */
+    margin-bottom: 30px; /* Spacing below heading */
+}
+
+.roadmap-item.left {
+    justify-content: flex-end; /* Align left items to the right */
+}
+
+.roadmap-item.right {
+    justify-content: flex-start; /* Align right items to the left */
+}
+
+.roadmap-content {
+    padding: 20px;
+    border-radius: 8px;
+    width: 45%;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2); /* Enhanced box shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the title vertically */
+    background-color: #222; /* Dark background for card */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+/* Hover effect for roadmap items */
+.roadmap-content:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Align title on the same line as the dot */
+.roadmap-content h3 {
+    margin: 0; /* Ensure there's no margin for better alignment */
+    font-size: 24px;
+    line-height: 1; /* Remove extra spacing around text */
+    color: #FF6F00; /* Heading color */
+}
+
+.roadmap-content p {
+    font-size: 16px;
+    color: #ddd; /* Slightly lighter color for description */
+}
+
+/* Visibility of the dots */
+.dot {
+    position: absolute;
+    width: 25px; /* Increased dot size */
+    height: 25px; /* Increased dot size */
+    border-radius: 50%;
+    background-color: transparent; /* Default to transparent */
+    border: 3px solid #FF6F00; /* Border color */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust for the dot's height */
+    left: calc(50% - 12.5px); /* Center the dot horizontally on the line */
+    z-index: 1;
+}
+
+/* Completed dot */
+.dot.completed {
+    background-color: #FF6F00; /* Fill color for completed */
+}
+
+/* In-progress dot */
+.dot.inprogress {
+    background-color: black; /* Keep black for in-progress */
+}
+
+/* Line through the middle */
+.roadmap-container:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px; /* Line thickness */
+    background-color: #FF6F00; /* Line color */
+    z-index: 0; /* Behind the dot and content */
+}
+
+/* Title and description styles */
+.roadmap-content h3 {
+    color: #FF6F00; /* Heading color */
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.roadmap-content p {
+    font-size: 16px;
+    color: #ddd; /* Description color */
+}
+@media (max-width: 780px) {
+    #heading-roadmap {
+        font-size: 20px; /* Reduce heading font size */
+    }
+
+    .roadmap-content h3 {
+        font-size: 18px; /* Reduce title font size */
+    }
+
+    .roadmap-content p {
+        font-size: 14px; /* Reduce description font size */
+    }
+}

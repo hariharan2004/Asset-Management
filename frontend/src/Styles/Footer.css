@@ -1,0 +1,70 @@
+/* Wrap the entire content */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the page takes full height */
+}
+
+/* Main content (vaults) should grow to take up available space */
+.main-content {
+  flex: 1; /* This allows the content to fill the remaining space */
+}
+
+/* Footer.css */
+.footer {
+  background-color: rgba(17, 17, 17, 0.8); /* Semi-transparent background */
+  color: #fff;
+  border-top: 1px solid #aaa;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  z-index: 10; /* Ensures the footer is above other content */
+}
+
+
+.footer-content {
+  max-width: 1200px; /* Maximum width for the content */
+  margin: 0 auto; /* Center the footer content */
+  padding: 0 20px; /* Padding for smaller screens */
+}
+
+/* Styling for footer text */
+.footer p {
+  margin: 0; /* Remove default margin */
+  font-size: 14px; /* Consistent font size */
+  color: #bbb; /* Slightly lighter color for contrast */
+}
+
+/* Links styling in footer */
+.footer-links {
+  margin-top: 10px; /* Space above links */
+}
+
+.footer-links a {
+  color: #00BFFF; /* Bright blue for links */
+  text-decoration: none; /* Remove underline */
+  margin: 0 10px; /* Space between links */
+  font-size: 16px; /* Font size for links */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.footer-links a:hover {
+  color: #FF6F61; /* Change color on hover */
+}
+
+.footer-links span {
+  color: #bbb; /* Color for additional text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 12px; /* Smaller font size on mobile */
+  }
+
+  .footer-links a {
+    font-size: 14px; /* Smaller link size on mobile */
+  }
+}

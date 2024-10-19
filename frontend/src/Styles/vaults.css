@@ -1,0 +1,126 @@
+p {
+  text-decoration: none; /* Remove underline from all paragraphs */
+}
+.vaults-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 vaults per row */
+  gap: 20px; /* Space between vaults */
+  padding: 20px;
+  padding-top: 100px; /* Adjust for header */
+  margin: 0px 50px;
+}
+
+.vault-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #231F1F; /* Background color for each vault */
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  width: 300px; /* Fixed width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent content overflow */
+  text-decoration: none; /* Ensure no underline on vault card */
+  color: inherit; /* Inherit color from parent */
+}
+
+.vault-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the logo and name */
+  margin-bottom: 10px;
+}
+
+.vault-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px; /* Space between logo and name */
+}
+
+.vault-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #FFBF00, #FF6F00); /* Gradient text */
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center; /* Center align the name */
+}
+.vault-details {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack rows vertically */
+  margin: 10px 0; /* Space between details */
+}
+
+.vault-stats {
+  display: flex; /* Use flex for labels */
+  justify-content: space-between; /* Space between labels */  
+  width: 100%; /* Full width */
+}
+
+.vault-values {
+  display: flex; /* Use flex for values */
+  justify-content: space-between; /* Space between values */
+  width: 100%; /* Full width */
+}
+.vault-stats p {
+  background: linear-gradient(90deg, #FFBF00, #FF6F00);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text color transparent to show the gradient */
+  font-weight: bold; /* Optional: Makes the text bold for better visibility */
+}
+.vault-stats p,
+.vault-values p {
+  flex: 1; /* Equal flex for spacing */
+  text-align: center; /* Center align the text */
+  margin: 5px; /* Remove margin for p tags */
+
+}
+
+.vault-details:nth-of-type(1) {
+  margin-bottom: 5px; /* Space between the two detail sections */
+}
+
+/* Add the following to your existing vaults.css */
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .vaults-container {
+    grid-template-columns: 1fr; /* 1 vault per row on small screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+    margin: 0; /* Remove margin to use full width */
+    margin-top: 50px; /* Add top margin for space between header and first vault */
+  }
+
+  .vault-card {
+    width: auto; /* Allow vault cards to take full width */
+    padding: 15px; /* Reduce padding for better spacing */
+    margin: 10px 0; /* Add margin for space between cards */
+  }
+
+  .vault-header {
+    justify-content: flex-start; /* Align logo and name to the left */
+  }
+
+  .vault-name {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+    text-align: left; /* Align text to the left */
+  }
+
+  .vault-stats p,
+  .vault-values p {
+    font-size: 0.9rem; /* Smaller font size for stats and values */
+  }
+}
+
+/* Ensure the header takes proper space */
+.header {
+  height: auto; /* Ensure header adjusts height dynamically */
+  padding: 10px; /* Add padding if needed */
+}
+
+/* Additional styles to make sure content doesn't overflow */
+.vault-card {
+  overflow: visible; /* Prevent content overflow */
+  min-height: 200px; /* Set a minimum height for cards */
+}
+

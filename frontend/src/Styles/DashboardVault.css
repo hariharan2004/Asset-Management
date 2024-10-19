@@ -1,0 +1,100 @@
+.dashboard-vault-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px;
+    margin-left: 100px;
+  }
+  
+  .invested-vaults-container {
+    width: 50%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .section-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .vaults-table {
+    width: 100%;
+  }
+  
+  .vaults-header, .vaults-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: black;
+    border-radius: 20px;
+    margin: 5px 0px;
+  }
+  
+  .vaults-header {
+    font-weight: bold;
+  }
+  
+  .vaults-row {
+    font-size: 16px;
+  }
+  
+  .dashboard-right-content {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .vault-roi-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .roi-graph-box-heading{
+    text-align: center;
+    align-items: center;
+  }
+  .vault-value-box, .roi-box {
+    width: 48%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vault-value-box h4, .roi-box h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  h5{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin: 5px;
+  }
+  .vault-value-box p, .roi-box p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  .roi-graph-box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+  }
+  
+  .roi-graph-box h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  

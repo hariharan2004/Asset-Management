@@ -1,0 +1,249 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Main container styling */
+.vault-detail-container {
+  display: grid;
+  grid-template-columns: 60vw calc(100% - 60vw - 20px); /* First grid takes 60vw, second grid takes remaining space minus the gap */
+  gap: 20px; /* Space between the grids */
+  padding: 20px;
+  padding-top: 100px; /* Adjust for header */
+  margin: 0px 50px;
+  box-sizing: border-box; /* Ensure padding and borders are included in the width calculation */
+}
+
+/* Left Box for Vault Performance (taking exactly 50% width) */
+.left-empty-box {
+  background-color: #222;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+/* Content inside left box (aligned top-left and top-right) */
+.left-box-content {
+  display: flex;
+  align-items: center; /* Center align vertically */
+  width: 100%;
+}
+
+.vault-title {
+  margin-left: 15px; /* Spacing between logo and title */
+}
+
+.left-box-content h2 {
+  font-size: 28px;
+  color: #ffbf00;
+  margin: 0; /* Remove default margin */
+}
+
+.left-box-content h3 {
+  font-size: 20px;
+  color: #ffbf00;
+  margin: 0; /* Remove default margin */
+}
+
+/* Right content area */
+.vault-content {
+  flex-basis: 38%;
+  padding:0px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Flexbox for Vault Info and Deposit/Withdraw */
+.vault-info-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Vault Info Box */
+.vault-info {
+  flex: 1;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Add space below Vault Info */
+}
+
+.vault-info-heading {
+  text-align: center;
+  margin: 5px auto;
+  color: #FF6F00;
+}
+
+.vault-address {
+  text-align: center;
+  background-color: #222;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+.vault-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vault-stat {
+  flex: 1;
+  text-align: center;
+  margin-right: 10px;
+}
+
+/* Deposit/Withdraw Box */
+.vault-actions {
+  flex: 1;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.deposit-withdraw-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deposit-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.amount-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+
+.balance-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.max-button {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.deposit-button {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+.main-second{
+  display: grid;
+  grid-template-columns: 45vw calc(100% - 45vw - 20px); /* First grid takes 60vw, second grid takes remaining space minus the gap */
+  gap: 20px; /* Space between the grids */
+  padding: 20px;
+  margin: 0px 50px;
+  box-sizing: border-box; 
+}
+.main-second-left-empty-box {
+  background-color: #222;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+.main-second-left-box-content {
+  display: flex;
+  align-items: center; /* Center align vertically */
+  width: 100%;
+}
+
+.main-second-vault-title {
+  margin-left: 15px; /* Spacing between logo and title */
+}
+
+.main-second-left-box-content h2 {
+  font-size: 28px;
+  color: #ffbf00;
+  margin: 0; /* Remove default margin */
+}
+
+.main-second-left-box-content h3 {
+  font-size: 20px;
+  color: #ffbf00;
+  margin: 0; /* Remove default margin */
+}
+/* Transaction Details Section */
+.transaction-details {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 100%; /* Ensure full width */
+  margin: 0; /* Remove any margin that might reduce width */
+}
+
+.transaction-header,
+.transaction-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+  gap: 10px;
+  background-color: black; /* Background for the entire row */
+  text-align: center;
+  padding: 15px; /* Space inside the row */
+  border-radius: 20px; /* Rounded corners for the whole row */
+  border: 1px solid black; /* Optional border for better visibility */
+  color: white; /* Ensure text is visible */
+  margin-bottom: 10px; /* Add space between rows */
+
+  display: flex;
+}
+
+.transaction-heading {
+  color: #FF6F00; /* Remove quotes around the color */
+  text-align: center; /* Center the text horizontally */
+  margin: 0 auto; /* To ensure centering within the parent container */
+  text-decoration: none;
+}
+
+.transaction-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* Responsive adjustments */
+/* Responsive adjustments */
+/* Responsive adjustments */
+/* Updated Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .vault-detail-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-second{
+    display: flex;
+    min-height: 350px;
+  }
+  .transaction-details{
+    display: none;
+  }
+  .left-empty-box{
+    background-color: #333;
+    min-height: 350px;
+    border-radius: 8px;
+  }
+  .vault-content{
+    padding: 0;
+  }
+}
+

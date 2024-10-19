@@ -1,0 +1,42 @@
+/* Dashboard container to center the box */
+.dashboard-container {
+    margin-top:70px;
+    margin-left: 40px;
+    height: 100vh;
+    box-sizing: border-box;
+    position: fixed;
+  }
+  
+  /* The main box with border and dimensions */
+  .dashboard-box {
+    width: 40px;
+    height: 505px;
+    border: 20px solid #333; /* Border with 20px width */
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Light background inside */
+  }
+  
+  /* Logo container to hold the logos vertically */
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between logos */
+    align-items: center;
+    height: 100%; /* Full height of the box */
+  }
+  
+  /* Individual clickable logos */
+  .clickable-logo {
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .clickable-logo:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+  

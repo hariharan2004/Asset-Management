@@ -1,0 +1,96 @@
+.dashboard-port-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px;
+    margin-left: 100px;
+  }
+  
+  .invested-port-container {
+    width: 50%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .port-section-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .port-table {
+    width: 100%;
+  }
+  
+  .port-header, .port-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .port-header {
+    font-weight: bold;
+  }
+  
+  .port-row {
+    font-size: 16px;
+
+    background-color: black;
+    border-radius: 20px;
+    margin: 5px 0px;
+  }
+  
+  .dashboard-port-right-content {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .port-roi-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .port-value-box, .port-roi-box {
+    width: 48%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .port-value-box h5, .port-roi-box h5 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .port-value-box p, .port-roi-box p {
+    margin: 5px 0;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .port-roi-graph-box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+  }
+  
+  .port-roi-graph-box h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
