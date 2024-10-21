@@ -28,7 +28,7 @@ function App() {
             <Route path='/retailers/dashboard/profile' element={<DashboardLayoutProfile />} />
             <Route path='/retailers/dashboard/vault' element={<DashboardLayout />} />
             <Route path='/retailers/dashboard/portfolio' element={<DashboardLayoutPort />} />
-            <Route path='/retailers/dashboard/history' element={<DashboardLayoutTransaction />} />
+            <Route path='/retailers/dashboard/history' element={<DashboardLayoutTransaction walletAddress={walletAddress}/>} />
             <Route path='/retailers/dashboard/faq' element={<Dashboard />} />
             <Route path="/vault/:vaultName" element={<VaultDetails walletAddress={walletAddress}/>} /> {/* New route for vault details */}
           </Routes>

@@ -4,7 +4,8 @@ import '../Styles/Vaultdetail.css'; // Ensure the CSS file is linked properly
 import bitcoinLogo from '../Icons/bitcoin.png';
 import ethereumLogo from '../Icons/etherum.png';
 import injectiveLogo from '../Icons/injective.svg';
-import { handleTxWithKeplr } from './Keplrinter';
+import { handleTxWithKeplr } from './Deposit';
+import { withdrawFundsHandler } from './Withdraw';
 import axios from 'axios';
 
 const VaultDetail = ({ walletAddress }) => {
@@ -39,41 +40,44 @@ const VaultDetail = ({ walletAddress }) => {
   };
   
   const withdrawFunds = async () => {
-    console.log("Withdrawal Initiated!");
-    const senderAddress = walletAddress;
-  
+    const receiverAddress = walletAddress; // Assuming the receiver is the user's wallet for withdrawal
+    const privateKey="0xe3b16765f052e92447d40f835f28052172019fbcb04bb8904e6ec42e8f979d0c";
+    const senderAddress="inj1cyz4n2pytr8l62w9pqhsn6jmc06s5hp2xsu72k";
+    const numericAmount = parseFloat(amount); // Convert amount to a number for withdrawal
+
     try {
-      const response = await axios.get(`http://localhost:5000/api/transactions/${senderAddress}`);
-      const { totalAmount } = response.data;
-      const Amount = parseFloat(amount);
-      setTotalDeposited(totalAmount);
-  
-      if (amount > totalAmount) {
+      console.log("Private Address",privateKey);
+      // Fetch total deposited amount for this wallet address from the backend
+      const response = await axios.get(`http://localhost:5000/api/transactions/${receiverAddress}`);
+      const { totalAmount } = response.data; // Extract total deposited amount
+
+      // Check if withdrawal amount exceeds total amount available
+      if (numericAmount > totalAmount) {
         console.error("Withdrawal amount exceeds total balance.");
         return;
       }
-  
-      console.log(`Withdrawing ${Amount} from wallet: ${senderAddress}`);
-      
-      console.log("Amount to withdraw:", Amount);
 
-      console.log(`Type of withdrawal amount: ${typeof Amount}`); // Should be 'number'
+      console.log(`Withdrawing ${numericAmount} from wallet: ${receiverAddress}`);
+
+      // Execute the blockchain withdrawal using the TypeScript function
+      const txHash = await withdrawFundsHandler(privateKey,senderAddress, receiverAddress, numericAmount);
+      console.log("Transaction successful:", txHash);
       const transactionResponse = await axios.post('http://localhost:5000/api/transactions/withdraw', {
-        walletAddress: senderAddress,
-        amount: Amount,
+        walletAddress: receiverAddress,
+        amount: amount,
         type: 'withdraw',
         vaultName: vaultName,  // Include vaultName for withdrawal
       });
-  
       console.log("Transaction recorded:", transactionResponse.data);
 
-  
-      const numericAmount = parseFloat(amount);
+      // Update the total withdrawn and deposited amounts
       setTotalDeposited(prevTotal => prevTotal - numericAmount);
+
+      console.log("Withdrawal recorded:", { amount: numericAmount, walletAddress: receiverAddress });
     } catch (error) {
-      console.error("Withdrawal failed:", error);
+      console.error("Transaction failed:", error);
     }
-  };  
+  };
 
 const storeTransaction = async (walletAddress, amount, type, vaultName) => {
   console.log("Sending data to backend:", { walletAddress, amount, type, vaultName });

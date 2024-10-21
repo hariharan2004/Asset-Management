@@ -51,49 +51,51 @@ router.post('/', validateTransactionInput, async (req, res) => {
 
 // POST /api/transactions/withdraw (handles withdrawals)
 router.post('/withdraw', async (req, res) => {
-  const { walletAddress, amount, vaultName } = req.body; // Extract wallet address, totalAmount, and vaultName from request body
-  console.log("Withdrawamount:",amount);
+  const { walletAddress, amount, vaultName } = req.body; // Extract walletAddress, amount, vaultName from request
+  console.log("Withdrawamount:", amount);
+
   try {
-    // Find the wallet's transactions
+    // Find the wallet's transaction record
     const transaction = await Transaction.findOne({ walletAddress });
     if (!transaction) {
       return res.status(404).json({ message: 'No transactions found for this wallet' });
     }
 
-    // Perform withdraw logic
-    const withdrawAmount = parseFloat(amount); // Ensure totalAmount is converted to a number
-    console.log("Withdraw amount:", withdrawAmount);
+    // Parse the withdrawal amount as a float number
+    const withdrawAmount = parseFloat(amount);
 
-    // Check if withdrawAmount is a valid number and greater than 0
+    // Ensure the amount is valid and greater than 0
     if (isNaN(withdrawAmount) || withdrawAmount <= 0) {
       return res.status(400).json({ message: 'Invalid withdrawal amount' });
     }
 
-    // Ensure the wallet has enough funds to withdraw
+    // Check if the wallet has enough funds for the withdrawal
     if (transaction.totalAmount < withdrawAmount) {
       return res.status(400).json({ message: 'Insufficient funds' });
     }
 
-    // Update the total amount in the wallet by subtracting the withdrawal amount
+    // Subtract the withdrawal amount from the total funds
     transaction.totalAmount -= withdrawAmount;
     console.log("Total amount after withdrawal:", transaction.totalAmount);
 
-    // Add a withdrawal transaction to the transactions array
+    // Add the withdrawal transaction to the transaction history
     transaction.transactions.push({
       type: 'withdraw',
-      amount: withdrawAmount, // Use withdrawAmount to ensure it's correctly passed
-      vaultName, // Include vaultName if needed
+      amount: withdrawAmount, // Ensure the correct amount is logged
+      vaultName, // Include vault name for future reference
     });
 
     // Save the updated transaction document
     await transaction.save();
 
-    res.status(200).json(transaction); // Return the updated transaction document
+    // Respond with the updated transaction data
+    res.status(200).json(transaction);
   } catch (error) {
     console.error('Error processing withdrawal:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
+
 
 
 
