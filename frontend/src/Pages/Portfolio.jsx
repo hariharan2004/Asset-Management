@@ -3,6 +3,8 @@ import '../Styles/Portfolio.css'; // Ensure to create a corresponding CSS file
 import bitcoinLogo from '../Icons/bitcoin.png';
 import ethereumLogo from '../Icons/etherum.png';
 import injectiveLogo from '../Icons/injective.svg';
+import { broadcastSpotLimitOrder } from './Spotorder';
+
 
 const portfolioData = {
   asset: "$100",
@@ -10,7 +12,25 @@ const portfolioData = {
   roi: "50%",
   address: "injafb454jrb4bn4b5n4b45n4b5n4b5n4"
 };
-
+const handleOrder = async() => {
+  broadcastSpotLimitOrder();
+}
+const handleDepsoit = async () => {
+  const privateKey = '0xe3b16765f052e92447d40f835f28052172019fbcb04bb8904e6ec42e8f979d0c';
+  const injectiveAddress = 'inj1cyz4n2pytr8l62w9pqhsn6jmc06s5hp2xsu72k';
+  const amountInBase = 1; // This can be a dynamic value from user input or a variable
+  const denom = 'inj'; // Default denomination
+  
+  try {
+    // Broadcast the deposit transaction
+    const txHash = await broadcastDepositTransaction(privateKey, injectiveAddress, amountInBase, denom);
+    console.log('Transaction successful, hash:', txHash);
+    // You could set state here or perform other actions based on the successful transaction
+  } catch (error) {
+    console.error('Transaction failed:', error);
+    // Handle error state or display an error message to the user
+  }
+};
 const assetData = [
   {
     token: 'BTC',
@@ -93,7 +113,7 @@ const Portfolio = () => {
                   <span style={{color:'#AF27DD'}}>BALANCE: $100</span>
                   <button className="portfolio-max-button" style={{color:'#AF27DD'}}>MAX</button>
                 </div>
-                <button className="portfolio-deposit-button" style={{color:'#FF6F00'}}>DEPOSIT</button>
+                <button className="portfolio-deposit-button" style={{color:'#FF6F00'}} onClick={handleOrder}>DEPOSIT</button>
               </div> 
             </div>
           </div>

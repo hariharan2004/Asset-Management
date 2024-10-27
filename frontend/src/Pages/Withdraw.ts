@@ -9,6 +9,7 @@ import {
 import { MsgSend } from '@injectivelabs/sdk-ts';
 import { Buffer } from "buffer";
 import { BigNumberInBase, DEFAULT_STD_FEE } from '@injectivelabs/utils';
+import { MsgWithdraw, MsgBroadcasterWithPk, getEthereumAddress } from '@injectivelabs/sdk-ts'
 
 /**
  * Function to withdraw funds from Injective blockchain.
@@ -17,6 +18,36 @@ import { BigNumberInBase, DEFAULT_STD_FEE } from '@injectivelabs/utils';
  * @param {number} amountToWithdraw - The amount to withdraw in INJ.
  * @returns {Promise<string>} - The transaction hash of the withdrawal.
  */
+export const handleMsgDeposit = async (amountToTransact: number) => {
+    const privateKey = '0xe3b16765f052e92447d40f835f28052172019fbcb04bb8904e6ec42e8f979d0c'
+    const injectiveAddress = 'inj1cyz4n2pytr8l62w9pqhsn6jmc06s5hp2xsu72k'
+
+    const amount = {
+      denom: 'inj',
+      amount: new BigNumberInBase(amountToTransact).toWei().toFixed(),
+    }
+
+    const ethereumAddress = getEthereumAddress(injectiveAddress)
+    const subaccountIndex = 1
+    const suffix = '0'.repeat(23) + subaccountIndex
+    const subaccountId = ethereumAddress + suffix
+
+    const msg = MsgWithdraw.fromJSON({
+      amount,
+      subaccountId,
+      injectiveAddress
+    });
+
+    const txHash = await new MsgBroadcasterWithPk({
+      privateKey,
+      network: Network.Testnet
+    }).broadcast({
+      msgs: msg
+    })
+    console.log(txHash)
+
+}
+
 export const withdrawFundsHandler = async (
   privateKeyHash: string,
   srcInjectiveAddress: string,
@@ -24,6 +55,7 @@ export const withdrawFundsHandler = async (
   amountToWithdraw: number
 ): Promise<string> => {
   try {
+    await handleMsgDeposit(amountToWithdraw);
     const network = getNetworkInfo(Network.Testnet);
     const privateKey = PrivateKey.fromHex(privateKeyHash);
     const senderAddress = srcInjectiveAddress;
